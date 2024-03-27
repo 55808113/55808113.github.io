@@ -27,6 +27,7 @@ th {
 /* 页脚位置响应 */
 html {
   height: 100%;
+  tab-size: 4;
 }
 main {
   min-height: calc(100% - 2 * 40px - 75px - 1.5 * 32px);

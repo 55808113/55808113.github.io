@@ -230,7 +230,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2024-03-26
+      更新于:&nbsp;2024-03-27
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -287,10 +287,6 @@
   <div class="post-tags">
     
       <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/Linux/ >Linux</a>
-      </i>
-    
-      <i class="iconfont icon-tag">
         <a rel="tag" href = /tags/Raspberrypi/ >Raspberrypi</a>
       </i>
     
@@ -298,10 +294,10 @@
 
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    <h1 id="树莓派screen的使用"><a href="#树莓派screen的使用" class="headerlink" title="树莓派screen的使用"></a>树莓派screen的使用</h1><h2 id="screen作用"><a href="#screen作用" class="headerlink" title="screen作用"></a>screen作用</h2><p>screen为了让putty退出的时候也能让进程继续执行。</p>
-<h2 id="安装screen"><a href="#安装screen" class="headerlink" title="安装screen"></a>安装screen</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install screen</span><br></pre></td></tr></table></figure>
+    <h1><span id="树莓派screen的使用">树莓派screen的使用</span></h1><h2><span id="screen作用">screen作用</span></h2><p>screen为了让putty退出的时候也能让进程继续执行。</p>
+<h2><span id="安装screen">安装screen</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install screen</span><br></pre></td></tr></table></figure>
 
-<h2 id="screen常用命令"><a href="#screen常用命令" class="headerlink" title="screen常用命令"></a>screen常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个叫“a”的进程（注意空格screen和-S和a之间都有空格）</span></span><br><span class="line">screen -S a</span><br><span class="line"><span class="comment">#保存进程</span></span><br><span class="line">crtl+a+d</span><br><span class="line"><span class="comment">#进入刚才创建的“a”进程</span></span><br><span class="line">screen -r a</span><br><span class="line"><span class="comment">#进入刚才保存的“a”进程</span></span><br><span class="line">screen -d -r a</span><br><span class="line"><span class="comment">#退出进程</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment">#查看当前所有的screen进程</span></span><br><span class="line">screen -<span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+<h2><span id="screen常用命令">screen常用命令</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个叫“a”的进程（注意空格screen和-S和a之间都有空格）</span></span><br><span class="line">screen -S a</span><br><span class="line"><span class="comment">#保存进程</span></span><br><span class="line">crtl+a+d</span><br><span class="line"><span class="comment">#进入刚才创建的“a”进程</span></span><br><span class="line">screen -r a</span><br><span class="line"><span class="comment">#进入刚才保存的“a”进程</span></span><br><span class="line">screen -d -r a</span><br><span class="line"><span class="comment">#退出进程</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment">#查看当前所有的screen进程</span></span><br><span class="line">screen -<span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
   </div>
   <!--文末结束语-->
   
@@ -335,7 +331,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BEscreen%E7%9A%84%E4%BD%BF%E7%94%A8/" id="toc-header" class="mdui-ripple">文章目录</a>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BEscreen%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">树莓派screen的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#screen%E4%BD%9C%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">screen作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85screen"><span class="toc-number">1.2.</span> <span class="toc-text">安装screen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#screen%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">screen常用命令</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">树莓派screen的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">screen作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">安装screen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">screen常用命令</span></a></li></ol></li></ol>
       </li>
     </ul>
   </div>
