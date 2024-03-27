@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+          
+            柯南的博客
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">柯南的博客</a>
+    <a href="/" class="header-subtitle mdui-typo-headline">这个是个人记录知识的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具栏</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/images/avatar.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">孙翔</div>
+            <div class="sidebar-description">我是一个热爱生活记录生活的人</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:55808113@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/55808113" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/"></a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2024-03-26
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-10-28
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=&url=https://55808113.github.io/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/&pic=https://55808113.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=&url=https://55808113.github.io/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/&via=孙翔" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://55808113.github.io/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://55808113.github.io/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://55808113.github.io/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/&title=" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=柯南的博客&title=&summary=我是一个热爱生活记录生活的人&pics=https://55808113.github.io/null&url=https://55808113.github.io/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://55808113.github.io/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/&text=" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="Linux下添加简单的开机自启动脚本"><a href="#Linux下添加简单的开机自启动脚本" class="headerlink" title="Linux下添加简单的开机自启动脚本"></a>Linux下添加简单的开机自启动脚本</h1><p>在linux的使用过程中，我们经常会碰到需要将某个自定义的应用程序设置为开机自启动以节省操作时间，这里提供两个设置开机自启动的方法。</p>
+<h2 id="rc-local"><a href="#rc-local" class="headerlink" title="rc.local"></a>rc.local</h2><h3 id="在rc-local脚本中添加开机自启动程序"><a href="#在rc-local脚本中添加开机自启动程序" class="headerlink" title="在rc.local脚本中添加开机自启动程序"></a>在rc.local脚本中添加开机自启动程序</h3><p>ubuntu在开机过程之后，会执行&#x2F;etc&#x2F;rc.local(注意&#x2F;etc&#x2F;init.d中也有个rc.local，不要弄混了)文件中的脚本程序，初始情况下，这个文件内容是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>如果我要开机运行diodon进程，在文本中添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">./usr/bin/diodon &amp;</span><br></pre></td></tr></table></figure>
+
+<p>看到这里有些盆友就要问了，为什么要在执行命令后面加&amp;？</p>
+<p>在shell执行命令后加&amp;是为了让应用程序在后台运行，rc.local也是一个脚本，主进程在运行这个脚本时必须能够返回，如果在这个脚本里面执行了一些死循环或者其他无法返回的任务，整个系统就很可能卡死在这里，无法启动，所以在这里运行的用户程序必须是能够返回或者本身就使用一些后台运行的进程。</p>
+<p>经过上面的添加，在下次重启的时候，使用命令：</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>既然有添加，就必须得有删除，其实以rc.local的删除方式很简单，直接删除rc.local中用户添加的部分即可。</p>
+<h2 id="将用户脚本添加到-x2F-etc-x2F-init-d中"><a href="#将用户脚本添加到-x2F-etc-x2F-init-d中" class="headerlink" title="将用户脚本添加到&#x2F;etc&#x2F;init.d中"></a>将用户脚本添加到&#x2F;etc&#x2F;init.d中</h2><h3 id="添加用户进程"><a href="#添加用户进程" class="headerlink" title="添加用户进程"></a>添加用户进程</h3><p>第二种方式就是将自己的用户脚本添加到&#x2F;etc&#x2F;init.d并链接到自启动程序当中。</p>
+<p>还是以diodon软件来举例，我编辑一个运行<code>vi diodon.sh</code>的脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">./usr/bin/diodon  </span><br></pre></td></tr></table></figure>
+
+<p>将其命名为diodon.sh,并用指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x diodon.sh</span><br><span class="line">sudo <span class="built_in">cp</span> diodon.sh /etc/init.d/  </span><br></pre></td></tr></table></figure>
+
+<p>将文件放到&#x2F;etc&#x2F;init.d目录中，然后将diodon,sh脚本链接到开机运行序列中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/init.d</span><br><span class="line">sudo update-rc.d diodon.sh defaults 96</span><br><span class="line">insserv: warning: script <span class="string">&#x27;diodon&#x27;</span> missing LSB tags and overrides  </span><br></pre></td></tr></table></figure>
+
+<p>这样重新启动时，就可以看到diodon.sh正在运行了。<br><code>sudo update-rc.d diodon.sh defaults 96</code><br>在这条指令中，<strong>update-rc.d</strong>是一个系统的链接工具。</p>
+<p>而<strong>defaults 96</strong>则是指定了脚本的开机顺序，数字为0-99，数字越大执行优先级越低，用户添加的程序最好选择低优先级的执行顺序，因为很可能我们的用户程序会依赖一些系统的应用进程，例如如果应用程序要使用到网络部分，就先得让网络后台程序先初始化完毕。</p>
+<p>看到这里，细心的朋友已经发现了，在链接脚本时有一个警告：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insserv: warning: script <span class="string">&#x27;diodon&#x27;</span> missing LSB tags and overrides  </span><br></pre></td></tr></table></figure>
+
+<p>作为一个菜鸟而言，是不敢忽视任何警告的，所以只好求助google，解决办法是在自己的脚本中的#!&#x2F;bin&#x2F;bash下添加：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### BEGIN INIT INFO</span></span><br><span class="line"><span class="comment"># Provides:          downey</span></span><br><span class="line"><span class="comment"># Required-Start:    $local_fs $network</span></span><br><span class="line"><span class="comment"># Required-Stop:     $local_fs</span></span><br><span class="line"><span class="comment"># Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="comment"># Default-Stop:      0 1 6</span></span><br><span class="line"><span class="comment"># Short-Description: tomcat service</span></span><br><span class="line"><span class="comment"># Description:       tomcat service daemon</span></span><br><span class="line"><span class="comment">### END INIT INFO  </span></span><br></pre></td></tr></table></figure>
+
+<p>添加这些的目的是告诉系统一些关于这个启动脚本的具体信息,其中比较重要的有这几项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Required-Start:   运行这个脚本需要的环境</span></span><br><span class="line"><span class="comment"># Required-Start:   停止这个脚本需要的环境</span></span><br><span class="line"><span class="comment"># Default-Start:    提供运行的运行级别</span></span><br><span class="line"><span class="comment"># Default-Stop:     不运行的运行级别</span></span><br><span class="line"><span class="comment"># Description:      描述</span></span><br></pre></td></tr></table></figure>
+
+<p>关于linux下的运行级别参考:<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%BF%90%E8%A1%8C%E7%BA%A7%E5%88%AB">linux运行级别</a></p>
+<h3 id="删除用户进程"><a href="#删除用户进程" class="headerlink" title="删除用户进程"></a>删除用户进程</h3><p>既然有添加就必然有删除，如果需要删除自定义开机运行脚本，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-rc.d -f diodon remove</span><br></pre></td></tr></table></figure>
+
+<h2 id="systemd的开机自启动"><a href="#systemd的开机自启动" class="headerlink" title="systemd的开机自启动"></a>systemd的开机自启动</h2><p>上面提到的两种方式适用于经典的system V控制系统启动和关闭的情况，但是目前(2018年10月)在大多数发行版上都开始使用了systemd的系统软件控制方式，包括Ubuntu16，centos.systemd系统管理着linux下的进程运行，属于应用程序，不属于linux内核的范畴。</p>
+<p>在systemd系统上设置开机自启动的方式也是非常简单的(尽管systemd这套软件管理工具并不简单)。</p>
+<h3 id="确定系统是否应用了systemd工具来管理"><a href="#确定系统是否应用了systemd工具来管理" class="headerlink" title="确定系统是否应用了systemd工具来管理"></a>确定系统是否应用了systemd工具来管理</h3><p>这里要注意的是，systemd是linux发行版上的预装工具，用来管理系统软件的启动运行和结束，所以通常来说，这套东西是依赖于发行版的，如果系统使用了这一套工具，那么就可以使用它来管理进程，如果不是，即使你安装了它，它也不会被默认配置为系统管理工具。</p>
+<p>查看系统是否使用systemd工具我们可以使用如下的指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemd --version</span><br></pre></td></tr></table></figure>
+
+<p>如果系统返回如下类似的信息，表明该系统是由systemd工具来管理软件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemd 232</span><br><span class="line">+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD +IDN</span><br></pre></td></tr></table></figure>
+
+<h3 id="systemctl的使用"><a href="#systemctl的使用" class="headerlink" title="systemctl的使用"></a>systemctl的使用</h3><p>对软件的管理主要是同通过systemd工具中的systemctl命令，相比于之前的system V的控制方式，systemd显得更加简洁明了，对用户更加友好，拿httpd来举例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">开启httpd服务：</span><br><span class="line">sudo systemctl start httpd</span><br><span class="line">设置httpd服务自启动：</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> httpd</span><br></pre></td></tr></table></figure>
+
+<p>至于关闭和取消自启动，大家心里应该有数了吧。</p>
+<h3 id="设置开机自启动"><a href="#设置开机自启动" class="headerlink" title="设置开机自启动"></a>设置开机自启动</h3><p>我们再回到重点，设置开机自启动。</p>
+<p>我们要为目标设置一个配置文件，其实这是可以预想到的，linux作为一个复杂的系统，开机自启动涉及到的依赖、运行级别、运行环境等等问题肯定需要用户去指定，在启动的时候系统才知道怎么正确地去运行软件。这个配置文件固定以.service作为后缀，比如我们如果要运行&#x2F;home&#x2F;downey目录下的test.sh脚本，我们可以添加一个配置文件<em><strong>test.service</strong></em>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=</span><br><span class="line">Documentation=</span><br><span class="line">After=network.target</span><br><span class="line">Wants=</span><br><span class="line">Requires=</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/home/downey/test.sh</span><br><span class="line">ExecStop=</span><br><span class="line">ExecReload=/home/downey/test.sh</span><br><span class="line">Type=simple</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>将文件放在<code>/usr/lib/systemd/system</code> 或者 <code>/etc/systemd/system</code>目录下，然后可以测试一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start test.service  </span><br></pre></td></tr></table></figure>
+
+<p>然后你可以查看你的&#x2F;home&#x2F;downey&#x2F;test.sh脚本是否已经运行，如果已经运行表示配置文件没有问题。然后可以键入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> test.service  </span><br></pre></td></tr></table></figure>
+
+<p>设置test脚本开机启动。如果上一步没有出问题，这一步基本上也不会有什么问题，系统会打印出如下信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Created symlink /etc/systemd/system/multi-user.target.wants/test.service → /usr/lib/systemd/system/test.service.  </span><br></pre></td></tr></table></figure>
+
+<p>可以看到，这里在&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;multi-user.target.wants&#x2F;目录下创建了一个&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;test.service文件的软链接，到这里设置开机自启动就完成了。</p>
+<h3 id="配置文件的简单解析"><a href="#配置文件的简单解析" class="headerlink" title="配置文件的简单解析"></a>配置文件的简单解析</h3><p>在上面的配置文件中，为了演示起见，我将一些本测试脚本不需要但是比较重要的配置项也写了出来，其实如果不需要可以删除，但是[Unit]&#x2F;[Service]&#x2F;[Install]这三个标签需要保留。<br>我们来一个个简单介绍一下配置项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Description：运行软件描述</span><br><span class="line">Documentation：软件的文档</span><br><span class="line">After：因为软件的启动通常依赖于其他软件，这里是指定在哪个服务被启动之后再启动，设置优先级</span><br><span class="line">Wants：弱依赖于某个服务，目标服务的运行状态可以影响到本软件但不会决定本软件运行状态</span><br><span class="line">Requires：强依赖某个服务，目标服务的状态可以决定本软件运行。</span><br><span class="line">ExecStart：执行命令</span><br><span class="line">ExecStop：停止执行命令</span><br><span class="line">ExecReload：重启时的命令</span><br><span class="line">Type：软件运行方式，默认为simple</span><br><span class="line">WantedBy：这里相当于设置软件，选择运行在linux的哪个运行级别，只是在systemd中不在有运行级别概念，但是这里权当这么理解。  </span><br></pre></td></tr></table></figure>
+
+<p>如果有多项，用逗号作为分隔。</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/">
+        <i class="iconfont icon-angle-left"></i>
+        <span></span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/doc/uncategorized/CentOS/Linux%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/">
+        <span></span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">Linux下添加简单的开机自启动脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rc-local"><span class="toc-number">1.1.</span> <span class="toc-text">rc.local</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8rc-local%E8%84%9A%E6%9C%AC%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">在rc.local脚本中添加开机自启动程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC%E6%B7%BB%E5%8A%A0%E5%88%B0-x2F-etc-x2F-init-d%E4%B8%AD"><span class="toc-number">1.2.</span> <span class="toc-text">将用户脚本添加到&#x2F;etc&#x2F;init.d中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">添加用户进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">删除用户进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">systemd的开机自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%90%A6%E5%BA%94%E7%94%A8%E4%BA%86systemd%E5%B7%A5%E5%85%B7%E6%9D%A5%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">确定系统是否应用了systemd工具来管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemctl%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">systemctl的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.3.</span> <span class="toc-text">设置开机自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E8%A7%A3%E6%9E%90"><span class="toc-number">1.3.4.</span> <span class="toc-text">配置文件的简单解析</span></a></li></ol></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2024 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        孙翔
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Raspberry Pi Zero U盘模式 | 柯南的博客
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">柯南的博客</a>
+    <a href="/" class="header-subtitle mdui-typo-headline">这个是个人记录知识的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具栏</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/images/avatar.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">孙翔</div>
+            <div class="sidebar-description">我是一个热爱生活记录生活的人</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:55808113@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/55808113" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/">Raspberry Pi Zero U盘模式</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2024-03-01
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2024-03-26
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/Raspberrypi/">Raspberrypi</a> > <a class="category-link" href="/categories/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/">通用设置</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=Raspberry Pi Zero U盘模式&url=https://55808113.github.io/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/&pic=https://55808113.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=Raspberry Pi Zero U盘模式&url=https://55808113.github.io/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/&via=孙翔" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://55808113.github.io/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://55808113.github.io/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://55808113.github.io/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/&title=Raspberry Pi Zero U盘模式" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=柯南的博客&title=Raspberry Pi Zero U盘模式&summary=我是一个热爱生活记录生活的人&pics=https://55808113.github.io/null&url=https://55808113.github.io/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://55808113.github.io/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/&text=Raspberry Pi Zero U盘模式" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Linux/ >Linux</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Raspberrypi/ >Raspberrypi</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="Raspberry-Pi-Zero-U盘模式"><a href="#Raspberry-Pi-Zero-U盘模式" class="headerlink" title="Raspberry Pi Zero U盘模式"></a>Raspberry Pi Zero U盘模式</h1><p>本例使用树莓派Zero-w,结果使其变为U盘</p>
+<p>[TOC]</p>
+<h2 id="1-修改config-txt让树莓派使用dwc2-USB驱动程序"><a href="#1-修改config-txt让树莓派使用dwc2-USB驱动程序" class="headerlink" title="1.修改config.txt让树莓派使用dwc2 USB驱动程序"></a>1.修改config.txt让树莓派使用dwc2 USB驱动程序</h2><p>执行命令</p>
+<blockquote>
+<p>该模式也可以制作USB无线网卡，这里不做介绍</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;dtoverlay=dwc2&quot;</span> | sudo <span class="built_in">tee</span> -a /boot/config.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-在Raspbian中启用模块dwc2"><a href="#2-在Raspbian中启用模块dwc2" class="headerlink" title="2.在Raspbian中启用模块dwc2"></a>2.在Raspbian中启用模块dwc2</h2><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;dwc2&quot;</span> | sudo <span class="built_in">tee</span> -a /etc/modules</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-选择生效的功能模块"><a href="#3-选择生效的功能模块" class="headerlink" title="3.选择生效的功能模块"></a>3.选择生效的功能模块</h2><p>这里使用g_mass_storage制作USB存储</p>
+<p><strong>Using the modules</strong></p>
+<ul>
+<li>g_serial</li>
+<li>g_ether</li>
+<li>g_mass_storage</li>
+</ul>
+<p>执行命令 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;g_mass_storage&quot;</span> | sudo <span class="built_in">tee</span> -a /etc/modules</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-创建文件系统划分存储空间"><a href="#4-创建文件系统划分存储空间" class="headerlink" title="4.创建文件系统划分存储空间"></a>4.创建文件系统划分存储空间</h2><p>要让树莓派zero作为一个大容量存储设备出现，首先在Pi上的文件中划分一块空间作为存储空间<br>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/home/pi/piusb-1gb.bin bs=1024 count=1000000</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>命令详解：<br>划分1G空间作为USB存储 使用存储文件为<code>/home/pi/piusb-1gb.bin</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/home/pi/piusb-1gb.bin bs=1024 count=1000000</span><br></pre></td></tr></table></figure>
+
+<p>划分8G空间作为USB存储 使用存储文件为<code>/home/pi/piusb-8gb.bin</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/home/pi/piusb-8gb.bin bs=1024 count=8000000</span><br></pre></td></tr></table></figure>
+
+<p>这里的路径和大小可以自行修改 由于树莓派性能较差 划分大空间需要等待很久（这里使用的16G普通TF卡 划分8GB用了1082秒）</p>
+</blockquote>
+<h2 id="5-挂载划分的空间为存储空间"><a href="#5-挂载划分的空间为存储空间" class="headerlink" title="5.挂载划分的空间为存储空间"></a>5.挂载划分的空间为存储空间</h2><p>这里的路径为创建的存储文件路径，其他的一些U盘参数可以自由修改</p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe g_mass_storage file=/home/pi/piusb-8gb.bin stall=0 removable=1 idVendor=0x0781 idProduct=0x5572 bcdDevice=0x011a iManufacturer=“SanDisk” iProduct=“Cruzer Switch” iSerialNumber=“1234567890”</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-格式化U盘"><a href="#6-格式化U盘" class="headerlink" title="6.格式化U盘"></a>6.格式化U盘</h2><p>之后格式化U盘即可正常使用 如无反应可执行reboot重启树莓派后再次执行第7步</p>
+<p>测试文件拷贝速度很一般</p>
+<h2 id="7-开机自动挂载"><a href="#7-开机自动挂载" class="headerlink" title="7.开机自动挂载"></a>7.开机自动挂载</h2><p>由于树莓派重启后不会自动挂载划分的空间<br>并且不熟悉树莓派<code>/etc/fstab</code>，怕改错需要重新刷系统，这里使用添加定时任务开机挂载（有熟悉的勇士可以试试改<code>/etc/fstab</code>）<br>执行命令<code>crontab -e</code>，第一次打开会选择编辑工具，没装vi或者vim就直接用nano也行<br>添加一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot sudo modprobe g_mass_storage file=/home/pi/piusb-8gb.bin stall=0 removable=1 idVendor=0x0781 idProduct=0x5572 bcdDevice=0x011a iManufacturer=“SanDisk” iProduct=“Cruzer Switch” iSerialNumber=“1234567890”</span><br></pre></td></tr></table></figure>
+
+<p>保存后即可开机自动挂载</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20%E5%A4%9A%E5%8A%9F%E8%83%BD%20USB%20%E6%8F%92%E5%A4%B4/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>树莓派 Zero 多功能 USB 插头</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BESD%E5%8D%A1%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%89%A9%E5%AE%B9/">
+        <span>树莓派SD卡安装系统后扩容</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/doc/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/Raspberrypi/%E9%80%9A%E7%94%A8%E8%AE%BE%E7%BD%AE/%E6%A0%91%E8%8E%93%E6%B4%BE%20Zero%20U%E7%9B%98%E6%A8%A1%E5%BC%8F/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Raspberry-Pi-Zero-U%E7%9B%98%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">Raspberry Pi Zero U盘模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9config-txt%E8%AE%A9%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8dwc2-USB%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1.修改config.txt让树莓派使用dwc2 USB驱动程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9C%A8Raspbian%E4%B8%AD%E5%90%AF%E7%94%A8%E6%A8%A1%E5%9D%97dwc2"><span class="toc-number">1.2.</span> <span class="toc-text">2.在Raspbian中启用模块dwc2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%80%89%E6%8B%A9%E7%94%9F%E6%95%88%E7%9A%84%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">1.3.</span> <span class="toc-text">3.选择生效的功能模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%92%E5%88%86%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4"><span class="toc-number">1.4.</span> <span class="toc-text">4.创建文件系统划分存储空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8C%82%E8%BD%BD%E5%88%92%E5%88%86%E7%9A%84%E7%A9%BA%E9%97%B4%E4%B8%BA%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4"><span class="toc-number">1.5.</span> <span class="toc-text">5.挂载划分的空间为存储空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98"><span class="toc-number">1.6.</span> <span class="toc-text">6.格式化U盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD"><span class="toc-number">1.7.</span> <span class="toc-text">7.开机自动挂载</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2024 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        孙翔
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            树莓派创建wifi热点 | 柯南的博客
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">柯南的博客</a>
+    <a href="/" class="header-subtitle mdui-typo-headline">这个是个人记录知识的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具栏</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/images/avatar.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">孙翔</div>
+            <div class="sidebar-description">我是一个热爱生活记录生活的人</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:55808113@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/55808113" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/">树莓派创建wifi热点</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2024-03-01
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2024-03-26
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/Raspberrypi/">Raspberrypi</a> > <a class="category-link" href="/categories/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/">安装常用服务</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=树莓派创建wifi热点&url=https://55808113.github.io/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/&pic=https://55808113.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=树莓派创建wifi热点&url=https://55808113.github.io/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/&via=孙翔" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://55808113.github.io/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://55808113.github.io/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://55808113.github.io/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/&title=树莓派创建wifi热点" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=柯南的博客&title=树莓派创建wifi热点&summary=我是一个热爱生活记录生活的人&pics=https://55808113.github.io/null&url=https://55808113.github.io/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://55808113.github.io/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/&text=树莓派创建wifi热点" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Linux/ >Linux</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Raspberrypi/ >Raspberrypi</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="树莓派创建wifi热点"><a href="#树莓派创建wifi热点" class="headerlink" title="树莓派创建wifi热点"></a>树莓派创建wifi热点</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>为了远程遥控树莓派，所以让树莓派创建wifi热点。现在使用一个开源的项目<br><a target="_blank" rel="noopener" href="https://github.com/oblique/create_ap">https://github.com/oblique/create_ap</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将代码copy到本地，安装</span></span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/oblique/create_ap</span><br><span class="line"><span class="built_in">cd</span> create_ap</span><br><span class="line">sudo make install</span><br><span class="line"><span class="comment">#安装依赖的库</span></span><br><span class="line">sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq </span><br><span class="line"><span class="comment">#此时你可以创建热点，通过以下命令： </span></span><br><span class="line"><span class="comment">#raspberry是wifi的热点名</span></span><br><span class="line"><span class="comment">#sunxdd3154271是wifi密码</span></span><br><span class="line">sudo create_ap -n wlan0 raspberry sunxdd3154271</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建wifi开机启动"><a href="#创建wifi开机启动" class="headerlink" title="创建wifi开机启动"></a>创建wifi开机启动</h2><p>编写编写 create_ap service 文件</p>
+<p><img src="data:image/png;base64,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2a2OVUoKYcNKk/K1xeXEaTJTGnamxqeQKVyX5KGdiQMHMMnAucbc1//cbVfEBtgqVT2rRFQ2Mf27hw6JCxfeKkw8192mr4qPDLePZ2fFXx34lvgf589bpGY9edpygl0y5GryoXHCbihZah+abUtNSDWlq923OX37bSvbt+EdyhMxLZ63fJ3xuJV5HBar+k1MtzjG5lnfusmjbiYaWk1MLz0x3iZNTfkwL3rgUEbLnAjsfMzNk4yNEw2tJ3wX37v15FxRnBRtOkalj4/dZ9GcD/0xcMqnITXLxTPs/65eyXOhHivLW+n3qctirdJx4Pz5clb5hHGLBSDmcT+lrs+WZd90DhbGJOZaqWpius2xtlw4RDnOZZWDGnzX1iqdenA1Md3uvbis/1Wy3VJbrEGI2tR/JCGq//W/P9+3D9HHH9c9tv7QBYi/vs/2Nd89dAg7d+zAJ269TX7AYb5He3sbnv72M/iPu3Zhw4bPVpvlukmFJQSRZLf2InX5I4F1K6VGZ6MOcoj7vYj2NL4sL51j3vx4LmolhbB0AF1Zjq9vRiznzYPnonnU4ly01SgvZRNCIC+AtrbWsl7TfFPTS5HX+vb11/bn5IjqTplwHRtlME1Uc6lxJHz9yDIAIaIlpGFBSD4v8KMf/UgJRvJygJEXyt8CQuQh8uq/RWG7BSU1jGjGh9gov1loYUsNyz9OlmZRJqq9wAgE43siWmIaFoREI481atfzLhf3K8scykuUsnudFqpCWfbFkE2zlkRERES10bAgZDHzRNIQkUbngqh6LMtEREQ0Hxq2RC8RERERES1NDEKIiIiIiKiuGIQQEREREVFdMQghIiIiIqK6YhBCRERERER1xSCEiIiIiIjqikEIERERERHVFYMQIiIiIiKqKwYhRERERERUVwxCiIiIiIiorhiEEBERERFRXTEIISIiIiKiumIQQkREREREdcUghIiIiIiI6opBCBERERER1RWDECIiIiIiqisGIUREREREVFcMQoiIiIiIqK4YhBARERERUV0xCCEiIiIiorpiEEJERERERHXFIISIiIiIiOqKQQgREREREdUVgxAiIiIiIqorBiFERERERFRXDEKIiIiIiKiuGIQQEREREVFdMQghIiIiIqK6YhBCRERERER1xSCEiIiIiIjqikEIERERERHVFYMQIiIiIiKqKwYhRERERERUVwxCiIiIiIiorhiEEBERERFRXTEIISIiIiKiumIQQkREREREdcUghIiIiIiI6opBCBERERER1RWDECIiIiIiqisGIUREREREVFcMQoiIiIiIqK4YhBARERERUV0xCCEiIiIiorpiEEJERERERHXFIISIiIiIiOqKQQgREREREdUVgxAiIiIiIqorBiFERERERFRXDEKIiIiIiKiuGIQQEREREVFdMQghIiIiIqK6YhBCRERERER1xSCEiIiIiIjqikEIERERERHVFYMQIiIiIiKqKwYhRERERERUVwxCiIiIiIiorhiEEBERERFRXTEIISIiIiKiumIQQkREREREdcUghIiIiIiI6opBCBERERER1RWDECIiIiIiqisGIUREREREVFcMQoiIiIiIqK4YhBARERERUV0xCCEiIiIiorr6/wHKzn7XAshxfAAAAABJRU5ErkJggg==" alt="image-20210830092429172"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=create_ap</span><br><span class="line">After=network.target</span><br><span class="line"> </span><br><span class="line">[Service]</span><br><span class="line">TimeoutStartSec=30</span><br><span class="line">ExecStart=sudo /home/pi/create_ap/create_ap -n wlan0 raspberry sunxdd3154271</span><br><span class="line">ExecStop=/bin/kill <span class="variable">$MAINPID</span></span><br><span class="line"> </span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>或者这样写</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Create AP Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/bin/create_ap --config /etc/create_ap.conf</span><br><span class="line">KillSignal=SIGINT</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=5</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>需要修改create_ap.conf文件进行设置</p>
+<p><img src="data:image/png;base64,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" alt="image-20210830093907555"></p>
+<p>SSID：wifi的名称</p>
+<p>PASSPHRASE：wifi密码</p>
+<p>启动服务systemctl start create_ap</p>
+<h2 id="访问树莓派"><a href="#访问树莓派" class="headerlink" title="访问树莓派"></a>访问树莓派</h2><p>树莓派的热点。本地为IP:192.168.12.1</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/doc/Raspberrypi/C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/Raspberrypi/C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/WiringPi%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>WiringPi学习笔记</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85Git%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF/">
+        <span>树莓派安装Git服务器和客户端</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/doc/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Raspberrypi/%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9B%E5%BB%BAwifi%E7%83%AD%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">树莓派创建wifi热点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAwifi%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.2.</span> <span class="toc-text">创建wifi开机启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="toc-number">1.3.</span> <span class="toc-text">访问树莓派</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2024 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        孙翔
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

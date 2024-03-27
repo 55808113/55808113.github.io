@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+          
+            柯南的博客
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">柯南的博客</a>
+    <a href="/" class="header-subtitle mdui-typo-headline">这个是个人记录知识的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具栏</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/images/avatar.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">孙翔</div>
+            <div class="sidebar-description">我是一个热爱生活记录生活的人</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:55808113@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/55808113" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/"></a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2024-03-26
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2024-03-26
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=&url=https://55808113.github.io/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/&pic=https://55808113.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=&url=https://55808113.github.io/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/&via=孙翔" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://55808113.github.io/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://55808113.github.io/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://55808113.github.io/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/&title=" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=柯南的博客&title=&summary=我是一个热爱生活记录生活的人&pics=https://55808113.github.io/null&url=https://55808113.github.io/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://55808113.github.io/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/&text=" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="grunt教程"><a href="#grunt教程" class="headerlink" title="grunt教程"></a>grunt教程</h1><p>想使用grunt 必须将grunt-cli安装到环境变量中，使用nodejs的“npm install ****” 进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure>
+
+<p>验证grunt-cli是否安装成功，在控制台输入grunt</p>
+<p><img src="data:image/png;base64,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" alt="img"></p>
+<p>出现以下的信息表示安装成功</p>
+<p>安装grunt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install grunt</span><br></pre></td></tr></table></figure>
+
+<p>配置Gruntfile.js</p>
+<p>这里可以看一下源码文件</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/doc/uncategorized/Nodejs/node%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+        <i class="iconfont icon-angle-left"></i>
+        <span></span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/doc/uncategorized/CentOS/Linux%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">
+        <span></span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/doc/uncategorized/Nodejs/grunt%E6%95%99%E7%A8%8B/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#grunt%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">grunt教程</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2024 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        孙翔
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
