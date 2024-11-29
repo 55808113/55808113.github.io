@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            sqlserver变更表结构查询视图数据对不上 | 柯南的博客
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">柯南的博客</a>
+    <a href="/" class="header-subtitle mdui-typo-headline">这个是个人记录知识的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具栏</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/images/avatar.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">孙翔</div>
+            <div class="sidebar-description">我是一个热爱生活记录生活的人</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:55808113@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/55808113" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/">sqlserver变更表结构查询视图数据对不上</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2024-03-01
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2024-11-29
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/">数据库知识</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=sqlserver变更表结构查询视图数据对不上&url=https://55808113.github.io/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/&pic=https://55808113.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=sqlserver变更表结构查询视图数据对不上&url=https://55808113.github.io/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/&via=孙翔" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://55808113.github.io/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://55808113.github.io/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://55808113.github.io/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/&title=sqlserver变更表结构查询视图数据对不上" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=柯南的博客&title=sqlserver变更表结构查询视图数据对不上&summary=我是一个热爱生活记录生活的人&pics=https://55808113.github.io/null&url=https://55808113.github.io/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://55808113.github.io/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/&text=sqlserver变更表结构查询视图数据对不上" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/sqlserver/ >sqlserver</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1><span id="sqlserver变更表结构查询视图数据对不上">sqlserver变更表结构查询视图数据对不上</span></h1><p>[TOC]</p>
+<p><strong>解决方法：</strong> </p>
+<p>变更表结构后，1.查询有关联的视图，2.并将视图更新</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--执行第一步查出关联视图</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="string">&#x27;EXEC sp_refreshview &#x27;&#x27;&#x27;</span> <span class="operator">+</span> name <span class="operator">+</span> <span class="string">&#x27;&#x27;&#x27;;&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span> sys.objects <span class="keyword">AS</span> so </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> sys.sql_expression_dependencies <span class="keyword">AS</span> sed </span><br><span class="line"> <span class="keyword">ON</span> so.object_id <span class="operator">=</span> sed.referencing_id </span><br><span class="line"><span class="keyword">WHERE</span> so.type <span class="operator">=</span> <span class="string">&#x27;V&#x27;</span> <span class="keyword">AND</span> sed.referenced_id <span class="operator">=</span> OBJECT_ID(<span class="string">&#x27;dbo.表名&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">--执行第二步  手动执行(刷新视图)</span></span><br><span class="line"><span class="keyword">exec</span> sp_refreshview orderview   <span class="comment">--（orderivew是视图名称）</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/png;base64,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" alt="image-20241129093618035"></p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/doc/Linux/CentOS/Linux%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>Linux 命令大全</span>
+      </a>
+    
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/doc/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/Database/SQL/sqlserver%E5%8F%98%E6%9B%B4%E8%A1%A8%E7%BB%93%E6%9E%84%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%AF%B9%E4%B8%8D%E4%B8%8A/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">sqlserver变更表结构查询视图数据对不上</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '8ffaf6499c8db7f66040',
+    clientSecret: '813e0e7ff62c9b268614b932fad9a7c6fb436bf4',
+    repo: '55808113.github.io',
+    owner: '55808113',
+    admin: ['55808113'],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+	createIssueManually:true
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2024 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        孙翔
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
